@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>منصة الشرح والاختبارات التفاعلية - البرمجة والذكاء الاصطناعي</title>
+    <!-- Bootstrap 5.3 RTL CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.rtl.min.css">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Tajawal:wght@400;500;700;800&display=swap"
+        rel="stylesheet">
+    <!-- Custom Modern Fresh Stylesheet -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <div class="background-globes">
+        <div class="globe globe-1"></div>
+        <div class="globe globe-2"></div>
+        <div class="globe globe-3"></div>
+    </div>
+
+    <!-- MAIN CONTAINER -->
+    <div class="container py-4 min-vh-100 d-flex flex-column justify-content-center position-relative">
+
+        <!-- HEADER BRAND -->
+        <header class="text-center mb-4 glass-nav py-3 px-4 rounded-4 shadow-sm animate-scale">
+            <div class="d-flex align-items-center justify-content-between flex-wrap gap-2">
+                <div class="d-flex align-items-center gap-3">
+                    <div class="icon-shape bg-emerald-gradient text-white rounded-3 shadow">
+                        <i class="bi bi-journal-code fs-3"></i>
+                    </div>
+                    <div class="text-start dir-rtl">
+                        <h1 class="h5 fw-bold mb-0 text-white">البرمجة والذكاء الاصطناعي</h1>
+                        <span
+                            class="badge bg-white bg-opacity-10 text-emerald-light border border-white border-opacity-20">الصف
+                            الثاني بكالوريا — منصة التعلم التفاعلية</span>
+                    </div>
+                </div>
+                <div id="userBadgeHeader" class="d-none">
+                    <span class="glass-badge py-2 px-3 rounded-pill text-white fw-bold">
+                        <i class="bi bi-person-circle text-amber me-1"></i>
+                        <span id="headerUserName">المستخدم</span>
+                    </span>
+                </div>
+            </div>
+        </header>
+
+        <!-- SCREEN 1: WELCOME SCREEN -->
+        <section id="screenWelcome"
+            class="glass-card card border-0 rounded-4 p-4 p-md-5 text-center my-auto shadow-lg animate-scale">
+            <div class="welcome-hero mb-4">
+                <div class="badge-coral px-3 py-1 rounded-pill fw-bold mb-3 d-inline-block">
+                    <i class="bi bi-stars me-1"></i> المنصة الشاملة للشرح والتقييم
+                </div>
+                <h2 class="display-6 fw-extrabold text-dark mb-3">أهلاً بك في منصة البرمجة والذكاء الاصطناعي</h2>
+                <p class="text-muted fs-5 mx-auto max-w-600">
+                    منصة تعليمية متكاملة تجمع بين <span class="text-emerald fw-bold">الشرح التفصيلي لجميع دروس
+                        الكتاب</span> والتقييم التفاعلي الذكي <span class="text-coral fw-bold"> - </span>!
+                </p>
+            </div>
+
+            <div class="card bg-white border-0 rounded-4 p-4 max-w-450 mx-auto shadow">
+                <form id="formWelcome" onsubmit="handleWelcomeSubmit(event)">
+                    <div class="mb-4 text-start">
+                        <label for="inputUserName" class="form-label text-dark fw-bold">
+                            <i class="bi bi-person-vcard text-emerald me-1"></i> اكتب اسمك للبدء:
+                        </label>
+                        <input type="text" id="inputUserName"
+                            class="form-control form-control-lg bg-light border-emerald text-dark rounded-3"
+                            placeholder="أدخل اسمك هنا..." required autocomplete="off">
+                    </div>
+                    <button type="submit"
+                        class="btn btn-emerald-gradient btn-lg w-100 rounded-3 fw-bold py-3 shadow hover-bounce">
+                        دخول المنصة <i class="bi bi-arrow-left-circle-fill ms-2"></i>
+                    </button>
+                </form>
+            </div>
+        </section>
+
+        <!-- SCREEN 2: MAIN DASHBOARD (STUDY MODE vs QUIZ MODE) -->
+        <section id="screenDashboard"
+            class="glass-card card border-0 rounded-4 p-4 p-md-5 my-auto shadow-lg d-none animate-scale">
+            <div class="text-center mb-4">
+                <h2 class="h3 fw-bold text-dark mb-2">
+                    مرحباً بك يا <span id="displayWelcomeUser" class="text-emerald fw-extrabold"></span> 👋
+                </h2>
+                <p class="text-muted fs-6">استعرض الشرح الكامل لدروس المنهج أو انتقل لقسم الاختبارات التفاعلية مباشرة:
+                </p>
+
+                <!-- TAB NAV PILLS -->
+                <ul class="nav nav-pills nav-pills-custom justify-content-center mt-3" id="pills-tab" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="pills-study-tab" data-bs-toggle="pill"
+                            data-bs-target="#pills-study" type="button" role="tab">
+                            <i class="bi bi-book-half me-2"></i> 📖 قسم الشرح والدروس التعليمية
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="pills-quiz-tab" data-bs-toggle="pill" data-bs-target="#pills-quiz"
+                            type="button" role="tab">
+                            <i class="bi bi-patch-question-fill me-2"></i> 🎯 قسم الاختبارات والتقييم التفاعلي
+                        </button>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="tab-content id=" pills-tabContent">
+                <!-- TAB 1: STUDY MODE -->
+                <div class="tab-pane fade show active" id="pills-study" role="tabpanel">
+                    <div
+                        class="d-flex align-items-center justify-content-between flex-wrap gap-2 bg-white p-3 rounded-3 shadow-sm border mb-4">
+                        <label for="filterStudyChapter" class="fw-bold text-dark mb-0 fs-6">
+                            <i class="bi bi-funnel-fill text-coral me-1"></i> تصفية الدروس حسب الفصل:
+                        </label>
+                        <select id="filterStudyChapter" onchange="renderStudyContent()"
+                            class="form-select w-auto bg-light border-emerald text-dark fw-bold">
+                            <option value="all" selected>🌟 جميع الفصول (14 درساً كاملاً)</option>
+                            <option value="1">📘 الفصل الأول: تكنولوجيا المعلومات والمجتمع</option>
+                            <option value="2">🛡️ الفصل الثاني: الأمن السيبراني</option>
+                            <option value="3">🌐 الفصل الثالث: تطبيقات الويب</option>
+                            <option value="4">🎨 الفصل الرابع: تصميم الويب والوسائط</option>
+                        </select>
+                    </div>
+
+                    <div id="studyLessonsContainer">
+                        <!-- Dynamic lesson cards injected via JS -->
+                    </div>
+                </div>
+
+                <!-- TAB 2: QUIZ SETUP MODE -->
+                <div class="tab-pane fade" id="pills-quiz" role="tabpanel">
+                    <div class="row g-4 justify-content-center max-w-800 mx-auto">
+                        <div class="col-12">
+                            <div class="card bg-white border rounded-4 p-4 shadow-sm">
+                                <label for="selectChapterQuiz" class="form-label text-dark fw-bold mb-2 fs-5">
+                                    <i class="bi bi-journal-bookmark-fill text-amber me-2"></i> اختر الفصل / الوحدة:
+                                </label>
+                                <select id="selectChapterQuiz"
+                                    class="form-select form-select-lg bg-light text-dark border-emerald rounded-3 py-3">
+                                    <option value="all" selected>🌟 جميع الفصول (اختبار شامل للمنهج كامل)</option>
+                                    <option value="1">📘 الفصل الأول: تكنولوجيا المعلومات والمجتمع (60 سؤال)</option>
+                                    <option value="2">🛡️ الفصل الثاني: الأمن السيبراني (45 سؤال)</option>
+                                    <option value="3">🌐 الفصل الثالث: تطبيقات الويب (45 سؤال)</option>
+                                    <option value="4">🎨 الفصل الرابع: تصميم الويب والوسائط (60 سؤال)</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col-12">
+                            <div class="card bg-white border rounded-4 p-4 shadow-sm">
+                                <label for="selectLessonQuiz" class="form-label text-dark fw-bold mb-2 fs-5">
+                                    <i class="bi bi-list-nested text-teal me-2"></i> اختر درساً محدداً (اختياري):
+                                </label>
+                                <select id="selectLessonQuiz"
+                                    class="form-select form-select-lg bg-light text-dark border-emerald rounded-3 py-3">
+                                    <!-- Populated dynamically -->
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="card bg-white border rounded-4 p-4 shadow-sm h-100">
+                                <label for="selectCountQuiz" class="form-label text-dark fw-bold mb-2 fs-5">
+                                    <i class="bi bi-hash text-coral me-2"></i> عدد الأسئلة:
+                                </label>
+                                <select id="selectCountQuiz"
+                                    class="form-select bg-light text-dark border-emerald rounded-3 py-2">
+                                    <option value="15" selected>15 سؤالاً (اختبار سريع)</option>
+                                    <option value="30">30 سؤالاً (اختبار متوسط)</option>
+                                    <option value="50">50 سؤالاً (اختبار مكثف)</option>
+                                    <option value="all">جميع أسئلة القسم</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div
+                                class="card bg-white border rounded-4 p-4 shadow-sm h-100 d-flex flex-column justify-content-center">
+                                <div class="form-check form-switch fs-5">
+                                    <input class="form-check-input" type="checkbox" id="switchTimerQuiz" checked>
+                                    <label class="form-check-input-label text-dark fw-bold ms-2" for="switchTimerQuiz">
+                                        <i class="bi bi-stopwatch text-coral me-1"></i> تفعيل المؤقت الزمني
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12 text-center mt-4">
+                            <button onclick="startQuizSession()"
+                                class="btn btn-coral-gradient btn-lg px-5 py-3 rounded-pill fw-bold shadow hover-bounce">
+                                <i class="bi bi-play-circle-fill me-2"></i> ابدأ الاختبار التفاعلي الآن
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SCREEN 3: QUIZ INTERACTIVE INTERFACE -->
+        <section id="screenQuiz"
+            class="glass-card card border-0 rounded-4 p-4 p-md-5 my-auto shadow-lg d-none animate-scale">
+            <!-- HEADER BAR -->
+            <div class="d-flex align-items-center justify-content-between flex-wrap gap-2 border-bottom pb-3 mb-4">
+                <span id="questionLessonBadge"
+                    class="badge bg-emerald-gradient text-white fs-7 py-2 px-3 rounded-pill fw-bold">الدرس 1-1</span>
+
+                <div id="timerContainer" class="d-flex align-items-center gap-2 bg-light px-3 py-1 rounded-pill border">
+                    <i class="bi bi-stopwatch-fill text-coral fs-5"></i>
+                    <span id="timerText" class="fw-bold text-dark font-monospace fs-5">00:00</span>
+                </div>
+
+                <button onclick="backToDashboard()" class="btn btn-outline-secondary btn-sm rounded-pill px-3">
+                    <i class="bi bi-x-circle me-1"></i> إنهاء الاختبار
+                </button>
+            </div>
+
+            <!-- PROGRESS BAR -->
+            <div class="mb-4">
+                <div class="d-flex justify-content-between align-items-center mb-1 text-muted fs-7 fw-bold">
+                    <span id="quizProgressText">السؤال 1 من 15</span>
+                    <span>تقدم الاختبار</span>
+                </div>
+                <div class="progress progress-custom">
+                    <div id="quizProgressBar" class="progress-bar progress-bar-custom" role="progressbar"
+                        style="width: 0%"></div>
+                </div>
+            </div>
+
+            <!-- QUESTION CARD -->
+            <div class="card bg-white border-0 shadow-sm rounded-4 p-4 mb-4">
+                <h3 id="questionText" class="h4 fw-bold text-dark lh-base mb-0">...</h3>
+            </div>
+
+            <!-- SHUFFLED OPTIONS CONTAINER -->
+            <div id="quizOptionsContainer" class="mb-3">
+                <!-- Dynamically injected shuffled options -->
+            </div>
+
+            <!-- FEEDBACK BOX -->
+            <div id="quizFeedbackBox" class="alert d-none" role="alert">
+                <div id="feedbackText" class="fs-6 mb-1"></div>
+                <div id="feedbackExplanation" class="small text-secondary"></div>
+            </div>
+
+            <!-- NEXT QUESTION BUTTON -->
+            <div class="text-end mt-3">
+                <button id="btnNextQuestion" onclick="handleNextQuestion()"
+                    class="btn btn-emerald-gradient btn-lg px-4 py-2 rounded-pill fw-bold d-none shadow">
+                    السؤال التالي <i class="bi bi-arrow-left-circle-fill ms-2"></i>
+                </button>
+            </div>
+        </section>
+
+        <!-- SCREEN 4: RESULTS & ANALYTICS -->
+        <section id="screenResult"
+            class="glass-card card border-0 rounded-4 p-4 p-md-5 my-auto shadow-lg d-none animate-scale text-center">
+            <div class="mb-4">
+                <div id="resultIconBadge"
+                    class="icon-shape-lg bg-emerald-gradient text-white rounded-circle mx-auto mb-3 shadow">
+                    <i class="bi bi-trophy-fill display-4"></i>
+                </div>
+                <h2 class="h3 text-dark fw-bold mb-1">نتيجة الاختبار التفاعلي</h2>
+                <p class="text-muted fs-6">أحسنت يا <span id="resultUserName" class="text-coral fw-bold"></span>! إليك
+                    تقييم أدائك:</p>
+            </div>
+
+            <div class="row g-3 justify-content-center mb-4 max-w-600 mx-auto">
+                <div class="col-6 col-md-4">
+                    <div class="card bg-white border rounded-4 p-3 text-center shadow-sm">
+                        <span class="text-muted fs-7">الدرجة الكلية</span>
+                        <h4 id="resultScoreText" class="display-6 fw-extrabold text-teal mb-0">0/0</h4>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4">
+                    <div class="card bg-white border rounded-4 p-3 text-center shadow-sm">
+                        <span class="text-muted fs-7">النسبة المئوية</span>
+                        <h4 id="resultPercentText" class="display-6 fw-extrabold text-coral mb-0">0%</h4>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4">
+                    <div class="card bg-white border rounded-4 p-3 text-center shadow-sm">
+                        <span class="text-muted fs-7">التقدير العام</span>
+                        <h4 id="resultGradeText" class="fs-4 fw-bold text-success mt-2 mb-0">ممتاز</h4>
+                    </div>
+                </div>
+            </div>
+
+            <!-- REVIEW ACCORDION -->
+            <div class="text-start mb-4 max-w-800 mx-auto">
+                <h4 class="h5 text-dark fw-bold mb-3"><i class="bi bi-card-checklist text-teal me-2"></i> مراجعة الأسئلة
+                    والإجابات الصحيحة الشاملة:</h4>
+                <div id="reviewQuestionsContainer" class="accordion accordion-custom" id="reviewAccordion">
+                    <!-- Review items dynamically injected -->
+                </div>
+            </div>
+
+            <div class="d-flex justify-content-center gap-3 flex-wrap">
+                <button onclick="restartQuizWithShuffle()"
+                    class="btn btn-emerald-gradient btn-lg px-4 py-3 rounded-pill fw-bold shadow">
+                    <i class="bi bi-shuffle me-2"></i> إعادة الاختبار (تبديل عشوائي جديد)
+                </button>
+                <button onclick="backToDashboard()" class="btn btn-outline-dark btn-lg px-4 py-3 rounded-pill fw-bold">
+                    <i class="bi bi-grid-fill me-2"></i> العودة للرئيسية والشرح
+                </button>
+            </div>
+        </section>
+
+        <!-- FOOTER -->
+        <footer class="text-center text-light-50 fs-7 mt-4">
+            <p class="mb-0 text-white-50"> المبرمج حمادة عبدالمحسن @2026</p>
+        </footer>
+
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/lessons.js"></script>
+    <script src="js/questions.js"></script>
+    <script src="js/app.js"></script>
+</body>
+
+</html>

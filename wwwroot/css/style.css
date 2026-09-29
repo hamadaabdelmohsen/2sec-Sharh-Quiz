@@ -1,0 +1,275 @@
+/* MODERN FRESH EMERALD & SUNSET CORAL THEME - CANVA / STUDIO STYLE */
+:root {
+    --primary-emerald: #0d9488;
+    --primary-teal: #0d9488;
+    --emerald-light: #2dd4bf;
+    --emerald-dark: #115e59;
+    
+    --accent-coral: #f97316;
+    --coral-light: #fb923c;
+    --accent-amber: #f59e0b;
+    --accent-cyan: #06b6d4;
+
+    --bg-gradient: linear-gradient(135deg, #0f2b26 0%, #113f38 50%, #1a4d44 100%);
+    --card-bg: rgba(255, 255, 255, 0.94);
+    --card-border: rgba(45, 212, 191, 0.25);
+    
+    --text-dark: #0f172a;
+    --text-muted: #475569;
+    --text-light: #f8fafc;
+
+    --glass-bg: rgba(20, 55, 49, 0.7);
+    --glass-border: rgba(255, 255, 255, 0.15);
+}
+
+body {
+    font-family: 'Cairo', 'Tajawal', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background: var(--bg-gradient);
+    color: var(--text-dark);
+    min-height: 100vh;
+    direction: rtl;
+    text-align: right;
+    overflow-x: hidden;
+}
+
+/* BACKGROUND DECORATIVE GLOBES */
+.background-globes {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    z-index: 0;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.globe {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.35;
+    animation: floatGlobe 18s ease-in-out infinite alternate;
+}
+
+.globe-1 {
+    width: 450px; height: 450px;
+    background: #2dd4bf;
+    top: -100px; right: -100px;
+}
+
+.globe-2 {
+    width: 400px; height: 400px;
+    background: #f97316;
+    bottom: -100px; left: -100px;
+    animation-delay: -6s;
+}
+
+.globe-3 {
+    width: 350px; height: 350px;
+    background: #06b6d4;
+    top: 40%; left: 30%;
+    animation-delay: -12s;
+}
+
+@keyframes floatGlobe {
+    0% { transform: translate(0, 0) scale(1); }
+    100% { transform: translate(40px, 60px) scale(1.15); }
+}
+
+/* GLASS NAVIGATION & CARDS */
+.glass-nav {
+    background: var(--glass-bg);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid var(--glass-border);
+}
+
+.glass-card {
+    background: var(--card-bg);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--card-border) !important;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+/* HERO & BADGES */
+.icon-shape {
+    width: 52px; height: 52px;
+    display: flex; align-items: center; justify-content: center;
+}
+
+.bg-emerald-gradient {
+    background: linear-gradient(135deg, #0d9488 0%, #2dd4bf 100%);
+}
+
+.bg-coral-gradient {
+    background: linear-gradient(135deg, #ea580c 0%, #f97316 100%);
+}
+
+.bg-amber-gradient {
+    background: linear-gradient(135deg, #d97706 0%, #f59e0b 100%);
+}
+
+.btn-emerald-gradient {
+    background: linear-gradient(135deg, #0d9488 0%, #14b8a6 100%);
+    color: #ffffff !important;
+    border: none;
+    transition: all 0.3s ease;
+}
+
+.btn-emerald-gradient:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(13, 148, 136, 0.4);
+    color: #ffffff;
+}
+
+.btn-coral-gradient {
+    background: linear-gradient(135deg, #f97316 0%, #fb923c 100%);
+    color: #ffffff !important;
+    border: none;
+    transition: all 0.3s ease;
+}
+
+.btn-coral-gradient:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(249, 115, 22, 0.4);
+    color: #ffffff;
+}
+
+.badge-coral {
+    background-color: #ffedd5;
+    color: #c2410c;
+}
+
+.badge-emerald {
+    background-color: #ccfbf1;
+    color: #0f766e;
+}
+
+/* NAV TABS FOR STUDY vs QUIZ MODE */
+.nav-pills-custom .nav-link {
+    color: var(--text-dark);
+    font-weight: 700;
+    border-radius: 12px;
+    padding: 12px 24px;
+    transition: all 0.3s ease;
+    background: rgba(241, 245, 249, 0.8);
+    margin: 0 4px;
+}
+
+.nav-pills-custom .nav-link.active {
+    background: linear-gradient(135deg, #0d9488 0%, #06b6d4 100%);
+    color: #ffffff !important;
+    box-shadow: 0 8px 20px rgba(13, 148, 136, 0.3);
+}
+
+/* LESSON EXPLANATION CARDS (CANVA STYLE) */
+.lesson-card {
+    background: #ffffff;
+    border-radius: 18px;
+    border: 1px solid #e2e8f0;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+}
+
+.lesson-card:hover {
+    box-shadow: 0 12px 30px rgba(13, 148, 136, 0.12);
+    border-color: #2dd4bf;
+}
+
+.key-point-box {
+    background: #f0fdf4;
+    border-right: 4px solid #10b981;
+    padding: 12px 16px;
+    border-radius: 8px 4px 4px 8px;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #065f46;
+}
+
+/* QUIZ OPTION CARDS */
+.quiz-option-card {
+    background: #ffffff;
+    border: 2px solid #e2e8f0;
+    border-radius: 14px;
+    padding: 16px 20px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.quiz-option-card:hover {
+    border-color: #0d9488;
+    background: #f0fdfa;
+    transform: translateX(-4px);
+}
+
+.quiz-option-card.selected {
+    border-color: #0d9488;
+    background: #ccfbf1;
+}
+
+.quiz-option-card.correct {
+    border-color: #10b981 !important;
+    background: #d1fae5 !important;
+    color: #065f46 !important;
+}
+
+.quiz-option-card.incorrect {
+    border-color: #ef4444 !important;
+    background: #fee2e2 !important;
+    color: #991b1b !important;
+}
+
+.option-badge {
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    background: #f1f5f9;
+    color: #334155;
+    font-weight: 800;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+}
+
+.quiz-option-card.correct .option-badge {
+    background: #10b981;
+    color: #ffffff;
+}
+
+.quiz-option-card.incorrect .option-badge {
+    background: #ef4444;
+    color: #ffffff;
+}
+
+/* PROGRESS & TIMERS */
+.progress-custom {
+    height: 12px;
+    border-radius: 10px;
+    background: #e2e8f0;
+    overflow: hidden;
+}
+
+.progress-bar-custom {
+    background: linear-gradient(90deg, #0d9488, #2dd4bf);
+    transition: width 0.4s ease;
+}
+
+/* UTILITY MAX WIDTHS */
+.max-w-450 { max-width: 450px; }
+.max-w-600 { max-width: 600px; }
+.max-w-800 { max-width: 800px; }
+.max-w-1000 { max-width: 1000px; }
+
+/* ANIMATIONS */
+.animate-scale {
+    animation: scaleIn 0.35s ease-out;
+}
+
+@keyframes scaleIn {
+    from { opacity: 0; transform: scale(0.96); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+.hover-bounce:hover {
+    transform: translateY(-3px);
+}
